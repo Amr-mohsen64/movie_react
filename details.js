@@ -4,10 +4,6 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import axios from "axios";
 import { useRoute } from "@react-navigation/native";
 
-
-
-
-
 function Details() {
     const route = useRoute()
     const [i, setMovies] = useState({});
@@ -31,9 +27,6 @@ function Details() {
                 <Text style={styles.size}>{i.release_date}</Text>
                 <Text style={styles.size}>{i.original_title}</Text>
                 {/* <Text>{route.params.id}</Text> */}
-
-
-           
         </View>
     )
 
@@ -43,9 +36,7 @@ const styles = StyleSheet.create({
     header: {
         alignItems: 'center',
         justifyContent: 'center',
-
         backgroundColor: 'blue',
-
         height: 50,
         width: 300,
         marginBottom: 10,
@@ -62,11 +53,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: 'red',
         alignItems: 'center',
-       
     }
     ,
     size: {
-        fontWeight: 1000
+        fontWeight: "900"
     },
     container: {
         flex: 1,

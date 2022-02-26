@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, View, Image,FlatList } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Image, FlatList } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-native';
 import { useNavigation } from '@react-navigation/native';
 export default function Header() {
   // const [text, setText] = useState('')
-  
+
   let [pages, setP] = useState(1)
   const [myMovies, setMovies] = useState([]);
   axios
@@ -15,12 +15,12 @@ export default function Header() {
     .catch((err) => console.log(err));
 
   //pagination
-  const navigation=useNavigation()
-  function gotToDetails(id){
-    navigation.navigate("Details",{
-      id:id
+  const navigation = useNavigation()
+  function gotToDetails(id) {
+    navigation.navigate("Details", {
+      id: id
     })
-    
+
   }
   function nextPage() {
     if (pages < 20) { setP(++pages) }
@@ -42,12 +42,12 @@ export default function Header() {
   return (
 
     <View style={styles.container} >
-      <View style={styles.header}>Movie List</View>
+      <Text style={styles.header}> Egy  best</Text>
       <FlatList
-      data={myMovies}
-      renderItem={({item})=>(
-        <View style={styles.movies}>
-          <Image source={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} style={{ width: 220, height: 400, borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
+        data={myMovies}
+        renderItem={({ item }) => (
+          <View style={styles.movies}>
+            <Image source={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} style={{ width: 220, height: 400, borderTopRightRadius: 10, borderTopLeftRadius: 10 }}
             />
             <Text style={styles.size}>{item.title}</Text>
             <Text style={styles.size}>{item.release_date}</Text>
@@ -55,12 +55,12 @@ export default function Header() {
               gotToDetails(item.id)
             }} style={{ marginBottom: 20 }} />
           </View>
-        
-      )}
-      numColumns={2}
+
+        )}
+        numColumns={2}
       />
-     
-       <View style={styles.buttonStyle}>
+
+      <View style={styles.buttonStyle}>
         <Button
           title={"Next"}
           style={styles.buttonStyle}
@@ -137,8 +137,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     backgroundColor: 'grey',
-fontSize:40,
-fontWeight:20,
+    fontSize: 40,
+    fontWeight: '200',
     height: 50,
     width: 300,
     marginBottom: 10,
@@ -151,8 +151,8 @@ fontWeight:20,
     marginBottom: 10
   },
   movies: {
-    marginEnd:10,
-    marginStart:15,
+    marginEnd: 10,
+    marginStart: 15,
     marginTop: 15,
     borderRadius: 10,
     borderColor: 'red',
@@ -165,7 +165,7 @@ fontWeight:20,
   }
   ,
   size: {
-    fontWeight: 1000
+    fontWeight: '900'
   },
   container: {
     flex: 1,
